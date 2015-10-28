@@ -1,0 +1,10 @@
+{
+	"name": "chat_online",
+	"version": "0.0.1",
+	"description": "simply chat_online demo",
+	"dependencies": {
+		"socket.io": "*",
+		"mime": "1.2.7"
+	}
+}
+
