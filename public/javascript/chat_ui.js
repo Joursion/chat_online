@@ -13,7 +13,9 @@ function processUserInput(chatApp, socket){
         systemMessage = chatApp.processCommand(message);
     }
     if(systemMessage){
-        $('#messages').append(divEscapedContentElement(systemMessage));
+        $('#messages').append('das');
+        alert('append');
+        $('#messages').append(divSystemContentElement(systemMessage));
     }else{
         chatApp.sendMessage($('#room').text(), message);
         $('#messages').append(divEscapedContentElement(message));
@@ -23,6 +25,7 @@ function processUserInput(chatApp, socket){
 }
 
 var socket = io.connect();
+
 $(document).ready(function () {
     var chatApp = new Chat(socket);
     socket.on('nameResult', function(result){
@@ -32,11 +35,11 @@ $(document).ready(function () {
         }else{
             message = result.message;
         }
-        $('#message').append(divSystemContentElement(message));
+        $('#messages').append(divSystemContentElement(message));
     });
     socket.on('joinResult', function (result) {
         $('#room').text(result.room);
-        $('#message').append(divSystemContentElement('Room changed'));
+        $('#messages').append(divSystemContentElement('Room changed'));
     });
     socket.on('rooms', function (rooms) {
         $('#room-list').empty();
@@ -60,6 +63,7 @@ $(document).ready(function () {
 
     $('#send-form').submit(function () {
         processUserInput(chatApp,socket);
+        alert('sus');
         return false;
     });
 });

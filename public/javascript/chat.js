@@ -2,7 +2,7 @@
  * Created by code_joursion on 15-10-28.
  */
 
-var Caht = function (socket) {
+var Chat = function (socket) {
     this.socket = socket;
 }
 
